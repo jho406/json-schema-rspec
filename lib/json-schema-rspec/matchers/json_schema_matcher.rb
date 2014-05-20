@@ -8,8 +8,9 @@ module JSON
     end
 
     class MatchJsonSchemaMatcher
-      def initialize(schema_name)
+      def initialize(schema_name, validation_opts = {})
         @schema_name = schema_name
+        @validation_opts = validation_opts
       end
 
       def matches?(actual)
@@ -25,7 +26,7 @@ module JSON
             "  end"]
           return false
         end
-        @errors = JSON::Validator.fully_validate(schema_for_name(@schema_name), @actual)
+        @errors = JSON::Validator.fully_validate(schema_for_name(@schema_name), @actual, @validation_opts)
 
         if @errors.any?
           @errors.unshift("Expected JSON object to match schema identified by #{@schema_name}, #{@errors.count} errors in validating")
@@ -48,8 +49,8 @@ module JSON
       end
     end
 
-    def match_json_schema(schema_name)
-      MatchJsonSchemaMatcher.new(schema_name)
+    def match_json_schema(schema_name, validation_opts = {})
+      MatchJsonSchemaMatcher.new(schema_name, validation_opts)
     end
   end
 end
