@@ -36,6 +36,16 @@ You can then write tests such as:
     
     #failing spec
     expect('[1, 2, 3]').to match_json_schema(:inline_schema)
+
+#### Strict schema validation
+
+If you wish to use strict schema validation you can do so by passing an additional argument to the matcher.
+strict validation can be useful if you want to ensure there are no additional properties in the JSON than
+those explicitly defined in your schema
+
+```
+expect(response.body).to match_json_schema(:my_schema, strict: true)
+```
     
 ### Schema in a file
 You can also use rails path utilities such as `Rails.root.join("spec/support/schemas/my_business_object.schema.json").to_s` when defining schema locations. This gem is backed by the [json-schema](http://github.com/hoxworth/json-schema) gem, so whatever that validator accepts  for paths should work.
