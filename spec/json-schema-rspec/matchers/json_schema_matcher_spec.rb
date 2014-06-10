@@ -40,7 +40,7 @@ describe JSON::SchemaMatchers::MatchJsonSchemaMatcher do
         no_errors
       end
 
-      expect(valid_json).to match_json_schema(:inline_schema, validation_options)
+      expect(valid_json).to match_json_schema(:inline_schema, tester: 3)
     end
 
     context 'finds a match' do
