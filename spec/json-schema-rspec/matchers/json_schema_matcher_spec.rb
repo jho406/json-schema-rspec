@@ -33,10 +33,10 @@ describe JSON::SchemaMatchers::MatchJsonSchemaMatcher do
       validation_options = {strict: true}
       no_errors = []
 
-      expect(JSON::Validator).to receive(:fully_validate) do |schema_value, json_value, validation_options|
-        expect(schema_value).to eq(schema_value)
-        expect(json_value).to eq(json_value)
-        expect(validation_options).to eq(validation_options)
+      expect(JSON::Validator).to receive(:fully_validate) do |schema_value_arg, json_value_arg, validation_options_arg|
+        expect(schema_value_arg).to eq(schema_value)
+        expect(json_value_arg).to eq(json_value)
+        expect(validation_options_arg).to eq(validation_options)
         no_errors
       end
 
