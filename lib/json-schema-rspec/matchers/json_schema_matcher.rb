@@ -44,6 +44,10 @@ module JSON
         "Expected JSON object not to match schema identified by #{@schema_name}"
       end
 
+      def description
+        "match JSON schema identified by #{@schema_name}"
+      end
+
       def schema_for_name(schema)
         RSpec.configuration.json_schemas[schema]
       end
