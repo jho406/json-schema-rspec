@@ -15,5 +15,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Json::Schema::Rspec::VERSION
   gem.add_dependency "rspec"
-  gem.add_dependency "json-schema", "~> 2.2.2"
+  gem.add_dependency "json-schema", "~> 2.5"
 end
