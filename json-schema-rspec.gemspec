@@ -2,8 +2,8 @@
 require File.expand_path('../lib/json-schema-rspec/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Michael Jensen"]
-  gem.email         = ["emjay1988@gmail.com"]
+  gem.authors       = ["Sharethrough Engineering", "Michael Jensen"]
+  gem.email         = ["engineers@sharethrough.com", "emjay1988@gmail.com"]
   gem.description   = %q{Adds RSpec matchers for validating JSON schemas}
   gem.summary       = %q{JSON Schema RSpec matchers}
   gem.homepage      = ""
