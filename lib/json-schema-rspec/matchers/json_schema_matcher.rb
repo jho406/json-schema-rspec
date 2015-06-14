@@ -4,7 +4,7 @@ require 'json-schema'
 module JSON
   module SchemaMatchers
     RSpec.configure do |c|
-      c.add_setting :json_schemas, default: {}
+      c.add_setting :schema_path, default: 'spec/schemas'
     end
 
     class MatchJsonSchemaMatcher
@@ -49,7 +49,9 @@ module JSON
       end
 
       def schema_for_name(schema)
-        RSpec.configuration.json_schemas[schema]
+        schema_path = RSpec.configuration.schema_path
+        path = File.join(schema_path, "#{schema.to_s}.json")
+        File.read(path)
       end
     end
 
